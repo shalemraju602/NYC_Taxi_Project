@@ -1,0 +1,30 @@
+Project Title: End-to-End Azure Data Engineering Pipeline – NYC Taxi Data
+
+I developed a complete data engineering pipeline on Microsoft Azure using NYC Taxi trip data. The goal was to automate data ingestion, transformation, and analytics using scalable cloud-native solutions.
+
+🔹 Data Ingestion:
+I established a dynamic API connection from the NYC Taxi website using Azure Data Factory (ADF). I designed a pipeline using ForEach, Copy Activity, and If Condition to pull data files month-wise and store them as Parquet files in Azure Data Lake Storage Gen2 (ADLS Gen2).
+
+🔹 Medallion Architecture:
+I implemented a layered data lake using the Medallion Architecture:
+
+Bronze Layer – Raw data ingested from the API
+
+Silver Layer – Cleaned and transformed data
+
+Gold Layer – Optimized Delta tables for analytics
+
+🔹 Data Transformation with Azure Databricks:
+I connected Azure Databricks (ADB) to ADLS Gen2 using App Registration and mounted the storage. I read data from the Bronze layer and applied PySpark transformations:
+
+Renamed columns
+
+Split timestamp columns into month and year
+
+Cleaned null or inconsistent data
+
+🔹 Delta Lake & Advanced Processing:
+I converted the transformed Parquet files into Delta Tables in the Silver layer. Then, I applied Spark SQL transformations, performed CRED (Create, Read, Update, Delete) operations, and tested Delta Lake’s time travel and versioning capabilities. These processed Delta Tables were stored in the Gold layer.
+
+🔹 Data Visualization:
+Finally, I connected the Gold layer to Power BI to create interactive dashboards for data exploration and business insights.
